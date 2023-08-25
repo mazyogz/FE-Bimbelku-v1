@@ -1,0 +1,193 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>Smart Students</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+</head>
+
+<body class="landing is-preload">
+    <div id="page-wrapper">
+
+        <!-- Header -->
+        <header id="header" class="alt">
+            <h1><a href="#">Smart Students</a>.</h1>
+            <nav id="nav">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li>
+                        <a href="#" class="icon solid fa-angle-down">Navigasi</a>
+                        <ul>
+                            <li><a href="#main">Deskripsi</a></li>
+                            <li><a href="#cari">Cari</a></li>
+                            <li><a href="#fitur">Fitur</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Banner -->
+        <section id="banner">
+            <h2>Smart Students</h2>
+            <p>Bersama kita bangun generasi yang lebih maju!</p>
+            <ul class="actions special">
+                <li><a href="#cari" class="button primary">Cari</a></li>
+                <li><a href="#fitur" class="button">Keunggulan Kami</a></li>
+            </ul>
+        </section>
+
+        <!-- Main -->
+        <section id="main" class="container">
+
+            <section class="box special">
+                <header class="major">
+                    <h2>Selamat datang di website kami, penyedia jasa layanan 
+                        <br />
+                        bimbingan belajar (bimbel) terbaik di Kota Malang!</h2>
+                    <p>Masih bingung mencari bimbel yang cocok untuk putra-putri anda?<br />
+                        Jangan risau, berikut rekomendasi bimbel untuk anda.</p>
+                </header>
+                <span class="image featured"><img src="images/pic01.jpg" alt="" /></span>
+            </section>
+ 
+            <section id="cari">
+                <ul class="actions special">
+                    <li><a href="/" class="button" id:"Semua">Semua</a></li>
+                    <li><a href="/Blimbing" class="button" id:"Blimbing">Blimbing</a></li>
+                    <li><a href="/Lowokwaru" class="button" id:"Lowokwaru">Lowokwaru</a></li>
+                    <li><a href="/Kedungkandang" class="button" id:"Kedungkandang">Kedungkandang</a></li>
+                    <li><a href="/Klojen" class="button" id:"Klojen">Klojen</a></li>
+                    <li><a href="/Sukun" class="button" id:"Sukun">Sukun</a></li>
+                </ul>
+            </section>
+
+            <div class="row">
+                <% if (bimbel.data && bimbel.data.length > 0) { %>
+                <% bimbel.data.map(item => { %>
+                <div class="col-6 col-12-narrower">
+                    <section class="box special">
+                        <span class="image featured bimbel"><img src="<%= item.url_pic %>" alt="Gambar gagal dimuat" /></span>
+                        <h3><%= item.nama %></h3>
+                        <h4><%= item.kecamatan %></h4>
+                        <h4><%= item.phone %></h4>
+                        <h4>Buka: <%= item.jam_buka %></h4>
+                        <h4>Tutup: <%= item.hari_buka %></h4>
+                        <p><%= item.alamat %></p>
+                        <ul class="actions special">
+                            <li><a href=" <%= item.url_location %>" class="button alt">Lokasi</a></li>
+                            <li><a href=" <%= item.website %>" class="button alt">Website</a></li>
+                        </ul>
+                    </section>
+                </div>
+                <% }) %>
+                <% } else { %>
+                <p>Tidak ada data yang ditemukan.</p>
+                <% } %>
+            </div>
+
+            <section id="fitur" class="box special features">
+                <div class="features-row">
+                    <section>
+                        <span class="icon solid major fa-bolt accent2"></span>
+                        <h3>Respon Cepat</h3>
+                        <p>Respon cepat seolah menyapu segala hambatan. Website kami membawa 
+                            Anda melintasi jalan pintas ke pengalaman online yang tak tertandingi.</p>
+                    </section>
+                    <section>
+                        <span class="icon solid major fa-chart-area accent3"></span>
+                        <h3>Terus Update</h3>
+                        <p>Kami berkomitmen untuk terus memperbarui informasi terkait jasa layanan 
+                            bimbel di Kota Malang. Jangan lewatkan update terbaru yang kami sajikan.</p>
+                    </section>
+                </div>
+                <div class="features-row">
+                    <section>
+                        <span class="icon solid major fa-clock accent4"></span>
+                        <h3>Akses Kapan Saja</h3>
+                        <p>Ketika Anda butuh informasi, website kami selalu siap untuk diakses kapan saja, dari mana saja. Kemudahan akses di ujung jari Anda.</p>
+                    </section>
+                    <section>
+                        <span class="icon solid major fa-lock accent5"></span>
+                        <h3>Privasi Terjaga</h3>
+                        <p>Kami menghargai privasi Anda dan melindunginya dengan sungguh-sungguh. Dengan kebijakan privasi yang ketat, kami menjaga data Anda tetap aman dan rahasia.</p>
+                    </section>
+                </div>
+            </section>
+        </section>
+
+        <!-- CTA -->
+        <section id="cta">
+
+            <h2>Kritik Saran</h2>
+            <p>Kami menghargai pendapat Anda! Silakan berbagi kritik dan saran dengan kami untuk membantu kami terus berkembang dan menjadi lebih baik.</p>
+
+            <form>
+                <div class="row gtr-50 gtr-uniform">
+                    <div class="col-8 col-12-mobilep">
+                        <input type="email" name="email" id="email" placeholder="Kritik/Saran" />
+                    </div>
+                    <div class="col-4 col-12-mobilep">
+                        <input type="submit" value="Kirim" class="fit" />
+                    </div>
+                </div>
+            </form>
+
+        </section>
+
+        <!-- Footer -->
+        <footer id="footer">
+            <ul class="icons">
+                <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+                <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+                <li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+                <li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
+                <li><a href="#" class="icon brands fa-google-plus"><span class="label">Google+</span></a></li>
+            </ul>
+            <ul class="copyright">
+                <li>&copy; Unmer Malang. All rights reserved.</li>
+                <li>Design: <a href="">Widias</a></li>
+            </ul>
+        </footer>
+
+    </div>
+
+    <!-- Scripts -->
+    <script>
+            document.getElementById('Semua').addEventListener('click', function() {
+        window.location.href = '/';
+    });
+
+    document.getElementById('Blimbing').addEventListener('click', function() {
+        window.location.href = '/Blimbing';
+    });
+
+    document.getElementById('Lowokwaru').addEventListener('click', function() {
+        window.location.href = '/Lowokwaru';
+    });
+
+    document.getElementById('Kedungkandang').addEventListener('click', function() {
+        window.location.href = '/Kedungkandang';
+    });
+
+    document.getElementById('Klojen').addEventListener('click', function() {
+        window.location.href = '/Klojen';
+    });
+
+    document.getElementById('Sukun').addEventListener('click', function() {
+        window.location.href = '/Sukun';
+    });
+    </script>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.dropotron.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
